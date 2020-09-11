@@ -57,7 +57,7 @@
                                 <img *ngIf="type==='video'" src='../assets/alt.png' height="300" width="70%">
                                 <br><br>
 
-                                <!-- <div class="form-group" style=" padding-left: 18%;padding-right: 18%;" >
+                                <!-- <div class="form-group bg-primary text-white" style=" padding-left: 18%;padding-right: 18%;" >
                         <label for="exampleFormControlTextarea1"> Description</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" [(ngModel)] = "text"></textarea>
                         </div> -->
@@ -67,43 +67,52 @@
 
 
 
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white">
+
+                                                        
 
                                                         <input type="text" class="form-control" id="food_item"
-                                                                [(ngModel)]="food_item" placeholder="Food Item"
+                                                                [(ngModel)]="food_item" placeholder="Food Item*"
                                                                 required="required">
+                                                                <small id="emailHelp" class="form-text text-muted"> Noodles, Biryani</small>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white ">
 
                                                         <input type="number" class="form-control" id="offer_value"
                                                                 [(ngModel)]="offer_value" placeholder="offer value">
+                                                                <small id="emailHelp" class="form-text text-muted">  20, 30</small>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white">
 
                                                         <input type="text" class="form-control" id="coupon_code"
                                                                 [(ngModel)]="coupon_code" placeholder="Coupon Code">
+                                                                <small id="emailHelp" class="form-text text-muted"> PARTY, SWIGGYIT</small>
                                                 </div>
 
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white">
 
                                                         <input type="text" class="form-control" id="restaurant_name"
                                                                 [(ngModel)]="restaurant_name"
-                                                                placeholder="Restaurant Name" required="required">
+                                                                placeholder="Restaurant Name*" required="required">
+                                                                <small id="emailHelp" class="form-text text-muted"> Meghna foods, KFC</small>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white">
 
                                                         <input type="text" class="form-control" id="logo_link"
                                                                 [(ngModel)]="logo_link" placeholder="Logo Link">
+                                                                <small id="emailHelp" class="form-text text-muted"> <a target="blank" href="https://res.cloudinary.com/swiggy/image/upload/v1594722587/lmr5y5v5e9h0jcxi48o1.jpg">Sample logo</a></small>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group bg-dark text-white">
 
                                                         <input type="text" class="form-control" id="copy_description"
                                                                 [(ngModel)]="copy_description"
                                                                 placeholder="Copy Description">
+                                                                <small id="emailHelp" class="form-text text-muted"> Mouth Watering Biryani..</small>
                                                 </div>
 
                                                 <button class="btn btn-primary btn-sm" type="submit" (click)="upload()"
                                                         [disabled]='is_disabled'>Generate Banner</button>
+                                                        
                                         </div>
                                 </div>
 
