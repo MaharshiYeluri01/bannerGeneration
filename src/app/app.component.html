@@ -30,131 +30,82 @@
 
 
 
-                                <!-- <div class="row">
-                                        <div class="col-md-2">
-                                               
-                                        </div>
-                                        <div class="col-md-8">
-                                                <div class="input-group mb-1">
-                            
-                                                        <div class="custom-file">
-                                                          <input type="file" class="custom-file-input" id="inputGroupFile01" (change)=on_file_select($event) (click)="clear()"
-                                                          style="width: 30%;">
-                                                          <label class="custom-file-label" for="inputGroupFile01">Logo Image</label>
-                                                        </div>
-                                                      </div>
-                                        </div>
-                                </div> -->
 
-
-
-
-                                <!-- <h6  *ngIf="url" class="text-info">
-                                Uploaded  File : {{file_name}}
-                                </h6> -->
 
                                 <img *ngIf="type==='image'" [src]="url" height="300" width="70%">
                                 <img *ngIf="type==='video'" src='../assets/alt.png' height="300" width="70%">
                                 <br><br>
 
-                                <!-- <div class="form-group bg-primary text-white" style=" padding-left: 18%;padding-right: 18%;" >
-                        <label for="exampleFormControlTextarea1"> Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" [(ngModel)] = "text"></textarea>
-                        </div> -->
+
                                 <div class="form">
                                         <div class="container" style="padding-left: 10%; padding-right: 10%;">
 
 
 
 
-                                                <div class="form-group bg-dark text-white">
-
-                                                        
+                                                <div class="form-group">
 
                                                         <input type="text" class="form-control" id="food_item"
-                                                                [(ngModel)]="food_item" placeholder="Food Item*"
+                                                                [(ngModel)]="food_item" placeholder="Food Item"
                                                                 required="required">
-                                                                <small id="emailHelp" class="form-text text-muted"> Noodles, Biryani</small>
                                                 </div>
-                                                <div class="form-group bg-dark text-white ">
+                                                <div class="form-group">
 
                                                         <input type="number" class="form-control" id="offer_value"
                                                                 [(ngModel)]="offer_value" placeholder="offer value">
-                                                                <small id="emailHelp" class="form-text text-muted">  20, 30</small>
                                                 </div>
-                                                <div class="form-group bg-dark text-white">
+                                                <div class="form-group">
 
                                                         <input type="text" class="form-control" id="coupon_code"
                                                                 [(ngModel)]="coupon_code" placeholder="Coupon Code">
-                                                                <small id="emailHelp" class="form-text text-muted"> PARTY, SWIGGYIT</small>
                                                 </div>
 
-                                                <div class="form-group bg-dark text-white">
+                                                <div class="form-group">
 
                                                         <input type="text" class="form-control" id="restaurant_name"
                                                                 [(ngModel)]="restaurant_name"
-                                                                placeholder="Restaurant Name*" required="required">
-                                                                <small id="emailHelp" class="form-text text-muted"> Meghna foods, KFC</small>
+                                                                placeholder="Restaurant Name" required="required">
                                                 </div>
-                                                <div class="form-group bg-dark text-white">
+                                                <div class="form-group">
 
                                                         <input type="text" class="form-control" id="logo_link"
                                                                 [(ngModel)]="logo_link" placeholder="Logo Link">
-                                                                <small id="emailHelp" class="form-text text-muted"> <a target="blank" href="https://res.cloudinary.com/swiggy/image/upload/v1594722587/lmr5y5v5e9h0jcxi48o1.jpg">Sample logo</a></small>
                                                 </div>
-                                                <div class="form-group bg-dark text-white">
+                                                <div class="form-group">
 
                                                         <input type="text" class="form-control" id="copy_description"
                                                                 [(ngModel)]="copy_description"
                                                                 placeholder="Copy Description">
-                                                                <small id="emailHelp" class="form-text text-muted"> Mouth Watering Biryani..</small>
                                                 </div>
 
                                                 <button class="btn btn-primary btn-sm" type="submit" (click)="upload()"
                                                         [disabled]='is_disabled'>Generate Banner</button>
-                                                        
                                         </div>
                                 </div>
 
-                              
 
 
-                                <!--         
-                     <button class="btn btn-info" type="button" (click)="upload()" [disabled]='is_disabled'>
-                        <div *ngIf='showSpinner'>
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        Running Inference...
-                        <div class="spinner-border spinner-border-sm" role="status">
-                                <span class="sr-only">Loading...</span>
-                              </div>
-                        </div>
-                        <div *ngIf='!showSpinner'>
-                               Generate Banner
-                        </div>
-                      </button> -->
+
+
 
                         </div>
                 </div>
 
 
 
-                <!-- <div class="col-lg-6">
-
-                <div *ngIf="show" style="text-align:center; padding-top: 110px;">
-                <img  [src]="src" height="300"
-                width="70%">
-                <br><br>
-                <a class="btn btn-primary" [href]="downloadURL">Download Image</a>
-                </div>
-        </div> -->
 
                 <div class="col-lg-9">
 
-                        <div *ngIf="show" style="text-align:center; padding-top: 110px;">
+                        <div *ngIf="show && valid_image" style="text-align:center; padding-top: 110px;">
                                 <a [href]=image download>
                                         <img [src]=image alt="Unable to generate banner  🙁 " width="984px"
                                                 height="504px">
                                 </a>
+                        </div>
+                        <div *ngIf="show && !valid_image" style="text-align:center; padding: 200px;">
+                                <div class="alert alert-danger" role="alert">
+                                        {{message}}
+                                      </div>
                         </div>
                         <div class="spinner" *ngIf="is_disabled" style="padding-left: 40%;padding-top: 20%;">
                                 <div class="sk-chase">
