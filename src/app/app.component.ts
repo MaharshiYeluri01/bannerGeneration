@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'frontend';
   url: any
   is_disabled = false
-
+  valid_image=false
   serving_url = 'http://banner_generation.akaiketech.com/api/v1/generate_banner'
   downloadURL = null
   src = null
@@ -25,45 +25,14 @@ export class AppComponent {
   restaurant_name = ''
   logo_link = ''
   copy_description = ''
+   message=''
  image_url='http://banner_generation.akaiketech.com'
  image=''
   type
   constructor(private httpClient: HttpClient) {
-
+  
   }
-  // clear() {
-  //   this.show = false
-
-  // }
-  // on_file_select(event) {
-
-  //   this.show = false
-
-  //   this.selectedFile = <File>event.target.files[0]
-  //   // console.log(event.target.value.split("."))
-
-  //   this.file_meta = event.target.files[0]
-  //   this.file_name = this.file_meta['name']
-  //   this.type = this.file_meta['type'].split("/")[0]
-
-  //   if (event.target.files && event.target.files[0]) {
-  //     const file = event.target.files[0];
-
-  //     const reader = new FileReader();
-  //     reader.onload = e => this.url = reader.result;
-
-  //     reader.readAsDataURL(file);
-  //     this.is_disabled = false
-
-
-
-
-
-
-
-  //   }
-
-  // }
+  
 
   validUpload() {
     if (this.food_item == '' || this.restaurant_name == '') {
@@ -74,6 +43,7 @@ export class AppComponent {
     }
     else { return true }
   }
+  
   upload() {
 
     if (this.validUpload()) {
@@ -98,6 +68,14 @@ export class AppComponent {
           this.is_disabled = false
           this.src = res['banner']
           this.image=this.image_url+res['banner_url']
+          this.message=res['display_message']
+          if (this.message.length>1){
+            this.valid_image=false
+
+          }
+          else{
+            this.valid_image=true
+          }
          
 
 
